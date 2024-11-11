@@ -107,6 +107,7 @@ target_sources(gengine
     BASE_DIRS ${CMAKE_CURRENT_SOURCE_DIR}/include
     FILES
         ${CMAKE_CURRENT_SOURCE_DIR}/include/GEngine.hpp
+        ${CMAKE_CURRENT_SOURCE_DIR}/include/Engine.hpp
         ${CMAKE_CURRENT_SOURCE_DIR}/include/utils/Color.hpp
         ${CMAKE_CURRENT_SOURCE_DIR}/include/utils/Infos.hpp
         ${CMAKE_CURRENT_SOURCE_DIR}/include/utils/Random.hpp
@@ -116,6 +117,7 @@ target_sources(gengine
         ${CMAKE_CURRENT_SOURCE_DIR}/include/utils/Timer.hpp
         ${CMAKE_CURRENT_SOURCE_DIR}/include/utils/TransformUtils.hpp
         ${CMAKE_CURRENT_SOURCE_DIR}/include/utils/Vec.hpp
+        ${CMAKE_CURRENT_SOURCE_DIR}/include/utils/WinInfo.hpp
         ${CMAKE_CURRENT_SOURCE_DIR}/include/systems/AnimationSystem.hpp
         ${CMAKE_CURRENT_SOURCE_DIR}/include/systems/CollisionSystem.hpp
         ${CMAKE_CURRENT_SOURCE_DIR}/include/systems/DrawMap.hpp
