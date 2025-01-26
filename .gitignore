@@ -1,4 +1,5 @@
-Engine/build/*
+build/
+Engine/build/
 .vscode/*
 
 # Prerequisites
