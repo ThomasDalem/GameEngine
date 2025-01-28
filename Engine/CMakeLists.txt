@@ -16,13 +16,6 @@ set(SRCS
     ${CMAKE_CURRENT_SOURCE_DIR}/src/Engine/TexturesLoader.cpp
     ${CMAKE_CURRENT_SOURCE_DIR}/src/Engine/TransformUtils.cpp
     ${CMAKE_CURRENT_SOURCE_DIR}/src/Engine/WinInfo.cpp
-    ${CMAKE_CURRENT_SOURCE_DIR}/src/HUD/Layer.cpp
-    ${CMAKE_CURRENT_SOURCE_DIR}/src/HUD/Component.cpp
-    ${CMAKE_CURRENT_SOURCE_DIR}/src/HUD/Interactable.cpp
-    ${CMAKE_CURRENT_SOURCE_DIR}/src/HUD/Draggable.cpp
-    ${CMAKE_CURRENT_SOURCE_DIR}/src/HUD/Image.cpp
-    ${CMAKE_CURRENT_SOURCE_DIR}/src/HUD/Button.cpp
-    ${CMAKE_CURRENT_SOURCE_DIR}/src/HUD/Box.cpp
     ${CMAKE_CURRENT_SOURCE_DIR}/src/systems/RenderSystem.cpp
     ${CMAKE_CURRENT_SOURCE_DIR}/src/systems/AnimationSystem.cpp
     ${CMAKE_CURRENT_SOURCE_DIR}/src/systems/MovementSystem.cpp
@@ -106,7 +99,6 @@ else ()
         sdlabs utils
     )
 endif ()
-
 target_sources(gengine
     PUBLIC FILE_SET HEADERS
     BASE_DIRS ${CMAKE_CURRENT_SOURCE_DIR}/include
@@ -124,14 +116,6 @@ target_sources(gengine
         ${CMAKE_CURRENT_SOURCE_DIR}/include/systems/TilemapSystem.hpp
         ${CMAKE_CURRENT_SOURCE_DIR}/include/systems/MovementSystem.hpp
         ${CMAKE_CURRENT_SOURCE_DIR}/include/systems/RenderSystem.hpp
-        ${CMAKE_CURRENT_SOURCE_DIR}/include/HUD/Box.hpp
-        ${CMAKE_CURRENT_SOURCE_DIR}/include/HUD/Button.hpp
-        ${CMAKE_CURRENT_SOURCE_DIR}/include/HUD/Component.hpp
-        ${CMAKE_CURRENT_SOURCE_DIR}/include/HUD/Draggable.hpp
-        ${CMAKE_CURRENT_SOURCE_DIR}/include/HUD/DynamicText.hpp
-        ${CMAKE_CURRENT_SOURCE_DIR}/include/HUD/Image.hpp
-        ${CMAKE_CURRENT_SOURCE_DIR}/include/HUD/Interactable.hpp
-        ${CMAKE_CURRENT_SOURCE_DIR}/include/HUD/Layer.hpp
         ${CMAKE_CURRENT_SOURCE_DIR}/include/components/Animation.hpp
         ${CMAKE_CURRENT_SOURCE_DIR}/include/components/Circle.hpp
         ${CMAKE_CURRENT_SOURCE_DIR}/include/components/Collider.hpp
