@@ -2,7 +2,7 @@
 #define ENGINE_HPP
 
 #include <memory>
-#include "SDL/App.hpp"
+#include "App.hpp"
 #include "Engine/Scene.hpp"
 #include "Engine/Camera.hpp"
 

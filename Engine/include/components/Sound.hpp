@@ -1,7 +1,7 @@
 #ifndef SOUND_HPP
 #define SOUND_HPP
 
-#include "SDL/Chunk.hpp"
+#include "Chunk.hpp"
 
 namespace Engine
 {

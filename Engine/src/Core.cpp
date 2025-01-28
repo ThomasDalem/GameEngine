@@ -1,10 +1,10 @@
 #include "Core.hpp"
 #include <SDL2/SDL_events.h>
 
-#include "SDL/App.hpp"
+#include "App.hpp"
 
-#include "utils/WinInfo.hpp"
-#include "utils/Timer.hpp"
+#include "Engine/WinInfo.hpp"
+#include "Timer.hpp"
 
 #include "systems/RenderSystem.hpp"
 #include "systems/AnimationSystem.hpp"

@@ -4,8 +4,8 @@
 #include <vector>
 #include <memory>
 #include <unordered_map>
-#include "utils/Rect.hpp"
-#include "SDL/Texture.hpp"
+#include "Rect.hpp"
+#include "Texture.hpp"
 
 namespace Engine
 {

@@ -1,7 +1,7 @@
 #ifndef LINE_HPP
 #define LINE_HPP
 
-#include "utils/Vec.hpp"
+#include "Vec.hpp"
 
 namespace Engine
 {

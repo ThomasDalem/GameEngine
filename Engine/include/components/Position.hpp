@@ -1,7 +1,7 @@
 #ifndef POSITION_HPP
 #define POSITION_HPP
 
-#include "utils/Vec.hpp"
+#include "Vec.hpp"
 
 //using Position = Vec2f;
 

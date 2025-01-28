@@ -2,9 +2,9 @@
 #define SPRITE_HPP
 
 #include <memory>
-#include "utils/Vec.hpp"
-#include "utils/Rect.hpp"
-#include "SDL/Texture.hpp"
+#include "Vec.hpp"
+#include "Rect.hpp"
+#include "Texture.hpp"
 
 namespace Engine
 {

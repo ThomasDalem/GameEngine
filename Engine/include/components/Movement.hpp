@@ -1,7 +1,7 @@
 #ifndef MOVEMENT_HPP
 #define MOVEMENT_HPP
 
-#include "utils/Vec.hpp"
+#include "Vec.hpp"
 
 namespace Engine
 {

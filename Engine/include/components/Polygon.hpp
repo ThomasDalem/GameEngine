@@ -2,7 +2,7 @@
 #define POLYGON_HPP
 
 #include <vector>
-#include "utils/Color.hpp"
+#include "Color.hpp"
 
 namespace Engine
 {

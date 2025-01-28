@@ -2,7 +2,7 @@
 #define DRAW_MAP_HPP
 
 #include "entt.hpp"
-#include "SDL/Renderer.hpp"
+#include "Renderer.hpp"
 #include "Engine/Camera.hpp"
 
 namespace Engine

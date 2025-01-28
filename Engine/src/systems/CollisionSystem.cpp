@@ -4,9 +4,9 @@
 #include "systems/CollisionSystem.hpp"
 #include "components/Collider.hpp"
 #include "components/Sprite.hpp"
-#include "utils/Rect.hpp"
-#include "utils/TransformUtils.hpp"
-
+#include "Rect.hpp"
+#include "Engine/TransformUtils.hpp"
+ 
 using namespace Engine;
 
 Vec2f getPolygonCenter(const std::vector<Vec2f> &vertices)

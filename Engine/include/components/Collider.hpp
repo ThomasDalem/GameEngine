@@ -2,7 +2,7 @@
 #define COLLIDER_HPP
 
 #include <vector>
-#include "utils/Vec.hpp"
+#include "Vec.hpp"
 #include "SDL2/SDL_pixels.h"
 
 namespace Engine

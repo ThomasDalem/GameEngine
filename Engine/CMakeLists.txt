@@ -10,36 +10,24 @@ set(CMAKE_CXX_STANDARD_REQUIRED On)
 set(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} "${CMAKE_SOURCE_DIR}/cmake/")
 
 set(SRCS
-    src/Core.cpp
-    src/Engine/Scene.cpp
-    src/HUD/Layer.cpp
-    src/HUD/Component.cpp
-    src/HUD/Interactable.cpp
-    src/HUD/Draggable.cpp
-    src/HUD/Image.cpp
-    src/HUD/Button.cpp
-    src/HUD/Text.cpp
-    src/HUD/Font.cpp
-    src/HUD/Box.cpp
-    src/utils/TexturesLoader.cpp
-    src/utils/Timer.cpp
-    src/utils/TransformUtils.cpp
-    src/utils/Infos.cpp
-    src/utils/SoundLoader.cpp
-    src/utils/Random.cpp
-    src/utils/WinInfo.cpp
-  	src/SDL/App.cpp
-    src/SDL/Surface.cpp
-    src/SDL/Texture.cpp
-    src/SDL/Renderer.cpp
-    src/SDL/Font.cpp
-    src/SDL/Text.cpp
-    src/SDL/Chunk.cpp
-    src/systems/RenderSystem.cpp
-    src/systems/AnimationSystem.cpp
-    src/systems/MovementSystem.cpp
-    src/systems/CollisionSystem.cpp
-    src/systems/TilemapSystem.cpp
+    ${CMAKE_CURRENT_SOURCE_DIR}/src/Core.cpp
+    ${CMAKE_CURRENT_SOURCE_DIR}/src/Engine/Scene.cpp
+    ${CMAKE_CURRENT_SOURCE_DIR}/src/Engine/SoundLoader.cpp
+    ${CMAKE_CURRENT_SOURCE_DIR}/src/Engine/TexturesLoader.cpp
+    ${CMAKE_CURRENT_SOURCE_DIR}/src/Engine/TransformUtils.cpp
+    ${CMAKE_CURRENT_SOURCE_DIR}/src/Engine/WinInfo.cpp
+    ${CMAKE_CURRENT_SOURCE_DIR}/src/HUD/Layer.cpp
+    ${CMAKE_CURRENT_SOURCE_DIR}/src/HUD/Component.cpp
+    ${CMAKE_CURRENT_SOURCE_DIR}/src/HUD/Interactable.cpp
+    ${CMAKE_CURRENT_SOURCE_DIR}/src/HUD/Draggable.cpp
+    ${CMAKE_CURRENT_SOURCE_DIR}/src/HUD/Image.cpp
+    ${CMAKE_CURRENT_SOURCE_DIR}/src/HUD/Button.cpp
+    ${CMAKE_CURRENT_SOURCE_DIR}/src/HUD/Box.cpp
+    ${CMAKE_CURRENT_SOURCE_DIR}/src/systems/RenderSystem.cpp
+    ${CMAKE_CURRENT_SOURCE_DIR}/src/systems/AnimationSystem.cpp
+    ${CMAKE_CURRENT_SOURCE_DIR}/src/systems/MovementSystem.cpp
+    ${CMAKE_CURRENT_SOURCE_DIR}/src/systems/CollisionSystem.cpp
+    ${CMAKE_CURRENT_SOURCE_DIR}/src/systems/TilemapSystem.cpp
 )
 
 if (MSVC)
@@ -98,9 +86,25 @@ target_include_directories(gengine
 )
 
 if (WIN32)
-    target_link_libraries(gengine PUBLIC ${SDL2_LIBRARIES} SDL2::SDL2_image SDL2_gfx::SDL2_gfx SDL2::SDL2_ttf SDL2::Mixer Boost::json)
+    target_link_libraries(gengine PUBLIC
+        ${SDL2_LIBRARIES}
+        SDL2::SDL2_image
+        SDL2_gfx::SDL2_gfx
+        SDL2::SDL2_ttf
+        SDL2::Mixer
+        Boost::json
+        sdlabs utils
+    )
 else ()
-    target_link_libraries(gengine PUBLIC ${SDL2_LIBRARIES} ${SDL2_IMAGE_LIBRARIES} ${SDL2_GFX_LIBRARIES} ${SDL2_TTF_LIBRARIES} ${SDL2_MIXER_LIBRARIES} Boost::json)
+    target_link_libraries(gengine PUBLIC
+        ${SDL2_LIBRARIES}
+        ${SDL2_IMAGE_LIBRARIES}
+        ${SDL2_GFX_LIBRARIES}
+        ${SDL2_TTF_LIBRARIES}
+        ${SDL2_MIXER_LIBRARIES}
+        Boost::json
+        sdlabs utils
+    )
 endif ()
 
 target_sources(gengine
@@ -111,38 +115,23 @@ target_sources(gengine
         ${CMAKE_CURRENT_SOURCE_DIR}/include/Core.hpp
         ${CMAKE_CURRENT_SOURCE_DIR}/include/Engine/Scene.hpp
         ${CMAKE_CURRENT_SOURCE_DIR}/include/Engine/Camera.hpp
-        ${CMAKE_CURRENT_SOURCE_DIR}/include/utils/Color.hpp
-        ${CMAKE_CURRENT_SOURCE_DIR}/include/utils/Infos.hpp
-        ${CMAKE_CURRENT_SOURCE_DIR}/include/utils/Random.hpp
-        ${CMAKE_CURRENT_SOURCE_DIR}/include/utils/Rect.hpp
-        ${CMAKE_CURRENT_SOURCE_DIR}/include/utils/SoundLoader.hpp
-        ${CMAKE_CURRENT_SOURCE_DIR}/include/utils/TexturesLoader.hpp
-        ${CMAKE_CURRENT_SOURCE_DIR}/include/utils/Timer.hpp
-        ${CMAKE_CURRENT_SOURCE_DIR}/include/utils/TransformUtils.hpp
-        ${CMAKE_CURRENT_SOURCE_DIR}/include/utils/Vec.hpp
-        ${CMAKE_CURRENT_SOURCE_DIR}/include/utils/WinInfo.hpp
+        ${CMAKE_CURRENT_SOURCE_DIR}/include/Engine/SoundLoader.hpp
+        ${CMAKE_CURRENT_SOURCE_DIR}/include/Engine/TexturesLoader.hpp
+        ${CMAKE_CURRENT_SOURCE_DIR}/include/Engine/TransformUtils.hpp
+        ${CMAKE_CURRENT_SOURCE_DIR}/include/Engine/WinInfo.hpp
         ${CMAKE_CURRENT_SOURCE_DIR}/include/systems/AnimationSystem.hpp
         ${CMAKE_CURRENT_SOURCE_DIR}/include/systems/CollisionSystem.hpp
         ${CMAKE_CURRENT_SOURCE_DIR}/include/systems/TilemapSystem.hpp
         ${CMAKE_CURRENT_SOURCE_DIR}/include/systems/MovementSystem.hpp
         ${CMAKE_CURRENT_SOURCE_DIR}/include/systems/RenderSystem.hpp
-        ${CMAKE_CURRENT_SOURCE_DIR}/include/SDL/App.hpp
-        ${CMAKE_CURRENT_SOURCE_DIR}/include/SDL/Chunk.hpp
-        ${CMAKE_CURRENT_SOURCE_DIR}/include/SDL/Font.hpp
-        ${CMAKE_CURRENT_SOURCE_DIR}/include/SDL/Renderer.hpp
-        ${CMAKE_CURRENT_SOURCE_DIR}/include/SDL/Surface.hpp
-        ${CMAKE_CURRENT_SOURCE_DIR}/include/SDL/Text.hpp
-        ${CMAKE_CURRENT_SOURCE_DIR}/include/SDL/Texture.hpp
         ${CMAKE_CURRENT_SOURCE_DIR}/include/HUD/Box.hpp
         ${CMAKE_CURRENT_SOURCE_DIR}/include/HUD/Button.hpp
         ${CMAKE_CURRENT_SOURCE_DIR}/include/HUD/Component.hpp
         ${CMAKE_CURRENT_SOURCE_DIR}/include/HUD/Draggable.hpp
         ${CMAKE_CURRENT_SOURCE_DIR}/include/HUD/DynamicText.hpp
-        ${CMAKE_CURRENT_SOURCE_DIR}/include/HUD/Font.hpp
         ${CMAKE_CURRENT_SOURCE_DIR}/include/HUD/Image.hpp
         ${CMAKE_CURRENT_SOURCE_DIR}/include/HUD/Interactable.hpp
         ${CMAKE_CURRENT_SOURCE_DIR}/include/HUD/Layer.hpp
-        ${CMAKE_CURRENT_SOURCE_DIR}/include/HUD/Text.hpp
         ${CMAKE_CURRENT_SOURCE_DIR}/include/components/Animation.hpp
         ${CMAKE_CURRENT_SOURCE_DIR}/include/components/Circle.hpp
         ${CMAKE_CURRENT_SOURCE_DIR}/include/components/Collider.hpp

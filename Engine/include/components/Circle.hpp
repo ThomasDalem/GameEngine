@@ -1,7 +1,7 @@
 #ifndef CIRCLE_HPP
 #define CIRCLE_HPP
 
-#include "utils/Color.hpp"
+#include "Color.hpp"
 
 namespace Engine
 {

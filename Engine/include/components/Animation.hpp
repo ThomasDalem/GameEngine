@@ -2,7 +2,7 @@
 #define ANIM_HPP
 
 #include <cstdint>
-#include "utils/Vec.hpp"
+#include "Vec.hpp"
 
 namespace Engine
 {
