@@ -1,7 +1,6 @@
 cmake_minimum_required(VERSION 3.23)
 
 include(GNUInstallDirs)
-include(CMakePrintHelpers)
 
 set(CMAKE_CXX_STANDARD 20)
 set(CMAKE_CXX_STANDARD_REQUIRED On)
@@ -61,8 +60,8 @@ if (WIN32)
         SDL2::SDL2_ttf
         SDL2::Mixer
         Boost::json
-        common
         imgui
+        sdlabs
     )
 else ()
     target_link_libraries(Editor PUBLIC 
@@ -72,8 +71,8 @@ else ()
         ${SDL2_TTF_LIBRARIES}
         ${SDL2_MIXER_LIBRARIES}
         Boost::json
-        common
         imgui
+        sdlabs
     )
 endif ()
 

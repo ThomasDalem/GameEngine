@@ -1,6 +1,6 @@
 #include <iostream>
-#include <SDL_image.h>
-#include <SDL_mixer.h>
+#include <SDL2/SDL_image.h>
+#include <SDL2/SDL_mixer.h>
 
 #include "App.hpp"
 
@@ -20,7 +20,7 @@ App::App(uint16_t screenWidth, uint16_t screenHeight) : _screenWidth(screenWidth
         SDL_WINDOWPOS_UNDEFINED,
         _screenWidth,
         _screenHeight,
-        SDL_WINDOW_SHOWN
+        SDL_WINDOW_SHOWN | SDL_WINDOW_ALLOW_HIGHDPI | SDL_WINDOW_RESIZABLE | SDL_WINDOW_OPENGL
     );
 
     if (_window == NULL)
@@ -28,8 +28,6 @@ App::App(uint16_t screenWidth, uint16_t screenHeight) : _screenWidth(screenWidth
         std::cout << "Error while creating the window : " << SDL_GetError() << std::endl;
         throw "Window error";
     }
-
-    SDL_SetWindowResizable(_window, SDL_TRUE);
 
     _renderer.initRenderer(_window);
 
