@@ -12,9 +12,9 @@ namespace Engine
         Scene();
         ~Scene();
 
-        virtual void start() {};
-
         entt::registry &getRegistry();
+        
+        void loadScene(const std::string &file);
 
     protected:
         entt::registry _reg;

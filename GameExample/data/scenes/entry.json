@@ -1,0 +1,39 @@
+{
+    "type": "scene",
+    "objects": [
+        {
+            "id": 1,
+            "components": [
+                {
+                    "type": "position",
+                    "x": 10.0,
+                    "y": 50.0
+                },
+                {
+                    "type": "sprite",
+                    "hidden": false,
+                    "scale": {
+                        "x": 1,
+                        "y": 1
+                    },
+                    "texture_rect": {
+                        "x": 0,
+                        "y": 0,
+                        "width": 20,
+                        "height": 30
+                    },
+                    "rect": {
+                        "x": 50,
+                        "y": 50,
+                        "width": 20,
+                        "height": 30
+                    },
+                    "angle": 0,
+                    "flip": "none",
+                    "texture": "assets/textures/box.png",
+                    "alpha": 0
+                }
+            ]
+        }
+    ]
+}

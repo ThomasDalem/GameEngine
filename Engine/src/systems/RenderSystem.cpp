@@ -106,15 +106,15 @@ void drawSprite(Sprite &sprite, SDL_Rect &rect, SDL::Renderer &renderer, bool de
 
     if (sprite.textureRect.width < 0 || sprite.textureRect.height < 0)
     {
-        if (sprite.center)
-        {
-            Vec2i rotCenter = *sprite.center.get();
-            renderer.copyEx(*sprite.texture.get(), sprite.alpha, rotCenter, sprite.angle, nullptr, &rect, sprite.flip);
-        }
-        else
-        {
-            renderer.copyEx(*sprite.texture.get(), sprite.alpha, sprite.angle, nullptr, &rect, sprite.flip);
-        }
+        //if (sprite.center)
+        //{
+        //    Vec2i rotCenter = *sprite.center.get();
+        //    renderer.copyEx(*sprite.texture.get(), sprite.alpha, rotCenter, sprite.angle, nullptr, &rect, sprite.flip);
+        //}
+        //else
+        //{
+        renderer.copyEx(*sprite.texture.get(), sprite.alpha, sprite.angle, nullptr, &rect, sprite.flip);
+        //}
     }
     else
     {
@@ -125,20 +125,20 @@ void drawSprite(Sprite &sprite, SDL_Rect &rect, SDL::Renderer &renderer, bool de
             sprite.textureRect.height
         };
         //renderer.copyEx(*sprite.texture.get(), sprite.alpha, sprite.angle, &spriteRect, &rect, sprite.flip);
-        if (sprite.center) // for rotation
-        {
-            Vec2i rotCenter = *sprite.center.get();
-            renderer.copyEx(*sprite.texture.get(), sprite.alpha, rotCenter, sprite.angle, &spriteRect, &rect, sprite.flip);
-            if (debug)
-            {
-                const Color color = {0, 0, 255, 0};
-                renderer.drawCircle(sprite.textureRect.x , sprite.textureRect.y, 10, color);
-            }
-        }
-        else
-        {
-            renderer.copyEx(*sprite.texture.get(), sprite.alpha, sprite.angle, &spriteRect, &rect, sprite.flip);
-        }
+        //if (sprite.center) // for rotation
+        //{
+        //    Vec2i rotCenter = *sprite.center.get();
+        //    renderer.copyEx(*sprite.texture.get(), sprite.alpha, rotCenter, sprite.angle, &spriteRect, &rect, sprite.flip);
+        //    if (debug)
+        //    {
+        //        const Color color = {0, 0, 255, 0};
+        //        renderer.drawCircle(sprite.textureRect.x , sprite.textureRect.y, 10, color);
+        //    }
+        //}
+        //else
+        //{
+        renderer.copyEx(*sprite.texture.get(), sprite.alpha, sprite.angle, &spriteRect, &rect, sprite.flip);
+        //}
     }
 }
 

@@ -15,7 +15,6 @@ namespace Engine
         RectI textureRect;
         RectF rect;
         float angle;
-        std::unique_ptr<Vec2f> center;
         SDL_RendererFlip flip;
         std::shared_ptr<SDL::Texture> texture;
         int alpha;

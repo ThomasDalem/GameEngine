@@ -1,4 +1,4 @@
-#include "Engine/TexturesLoader.hpp"
+#include "engine/TexturesLoader.hpp"
 #include <algorithm>
 
 TexturesLoader::TexturesLoader(SDL::Renderer &renderer) : _renderer(renderer)

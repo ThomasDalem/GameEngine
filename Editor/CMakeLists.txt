@@ -9,10 +9,12 @@ set(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} "${CMAKE_SOURCE_DIR}/cmake/")
 set(SRCS
     src/main.cpp
     src/Core.cpp
+    src/build.cpp
 )
 
 set(HEADERS
     src/Core.hpp
+    src/build.hpp
 )
 
 if (MSVC)

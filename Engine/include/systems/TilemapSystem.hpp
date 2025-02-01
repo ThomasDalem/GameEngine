@@ -3,7 +3,7 @@
 
 #include "entt.hpp"
 #include "Renderer.hpp"
-#include "Engine/Camera.hpp"
+#include "engine/Camera.hpp"
 
 namespace Engine
 {

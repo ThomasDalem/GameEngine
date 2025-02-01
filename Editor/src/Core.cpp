@@ -1,8 +1,11 @@
 #include "Core.hpp"
+#include <iostream>
+#include <SDL2/SDL_events.h>
 #include <imgui_impl_sdl2.h>
 #include <imgui_impl_sdlrenderer2.h>
 #include <imgui.h>
-#include <SDL2/SDL_events.h>
+
+#include "build.hpp"
 
 int mainLoop(SDL::App &app)
 {
@@ -33,12 +36,11 @@ int mainLoop(SDL::App &app)
         ImGui_ImplSDL2_NewFrame();
         ImGui::NewFrame();
 
-        ImGui::Begin("Some panel", nullptr);
-        ImGui::Text("Hello World");
-        ImGui::End();
-
-        ImGui::Begin("Other panel", nullptr);
-        ImGui::Text("Hello World");
+        ImGui::Begin("Build", nullptr);
+        if (ImGui::Button("Build project"))
+        {
+            buildProject();
+        }
         ImGui::End();
 
         ImGui::Render();
@@ -48,9 +50,7 @@ int mainLoop(SDL::App &app)
         SDL_RenderClear(app.getRenderer().getRenderer());
         ImGui_ImplSDLRenderer2_RenderDrawData(ImGui::GetDrawData(), app.getRenderer().getRenderer());
 
-        SDL_Rect rect {20, 20, 50, 50};
         SDL_SetRenderDrawColor(app.getRenderer().getRenderer(), 255, 255, 255, 255);
-        SDL_RenderDrawRect(app.getRenderer().getRenderer(), &rect);
 
         SDL_RenderPresent(app.getRenderer().getRenderer());
     }

@@ -1,4 +1,4 @@
-#include "Engine/WinInfo.hpp"
+#include "engine/WinInfo.hpp"
 
 WinInfo::WinInfo() : _app(nullptr), _mousePos(0, 0)
 {}

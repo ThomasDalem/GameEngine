@@ -10,17 +10,17 @@ set(CMAKE_CXX_STANDARD_REQUIRED On)
 set(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} "${CMAKE_SOURCE_DIR}/cmake/")
 
 set(SRCS
-    ${CMAKE_CURRENT_SOURCE_DIR}/src/Core.cpp
-    ${CMAKE_CURRENT_SOURCE_DIR}/src/Engine/Scene.cpp
-    ${CMAKE_CURRENT_SOURCE_DIR}/src/Engine/SoundLoader.cpp
-    ${CMAKE_CURRENT_SOURCE_DIR}/src/Engine/TexturesLoader.cpp
-    ${CMAKE_CURRENT_SOURCE_DIR}/src/Engine/TransformUtils.cpp
-    ${CMAKE_CURRENT_SOURCE_DIR}/src/Engine/WinInfo.cpp
     ${CMAKE_CURRENT_SOURCE_DIR}/src/systems/RenderSystem.cpp
     ${CMAKE_CURRENT_SOURCE_DIR}/src/systems/AnimationSystem.cpp
     ${CMAKE_CURRENT_SOURCE_DIR}/src/systems/MovementSystem.cpp
     ${CMAKE_CURRENT_SOURCE_DIR}/src/systems/CollisionSystem.cpp
     ${CMAKE_CURRENT_SOURCE_DIR}/src/systems/TilemapSystem.cpp
+    ${CMAKE_CURRENT_SOURCE_DIR}/src/engine/Core.cpp
+    ${CMAKE_CURRENT_SOURCE_DIR}/src/engine/Scene.cpp
+    ${CMAKE_CURRENT_SOURCE_DIR}/src/engine/SoundLoader.cpp
+    ${CMAKE_CURRENT_SOURCE_DIR}/src/engine/TexturesLoader.cpp
+    ${CMAKE_CURRENT_SOURCE_DIR}/src/engine/TransformUtils.cpp
+    ${CMAKE_CURRENT_SOURCE_DIR}/src/engine/WinInfo.cpp
 )
 
 if (MSVC)
@@ -70,8 +70,8 @@ set_target_properties(gengine PROPERTIES
 configure_file(gengine.pc.in gengine.pc @ONLY)
 
 target_include_directories(gengine
-    PUBLIC "src/"
-    PUBLIC "include/"
+    PUBLIC "${CMAKE_CURRENT_SOURCE_DIR}/include/"
+    #PUBLIC "${CMAKE_CURRENT_SOURCE_DIR}/include/engine"
     PUBLIC ${SDL2_INCLUDE_DIRS}
     PUBLIC ${SDL2_IMAGE_INCLUDE_DIRS}
     PUBLIC ${SDL2_GFX_INCLUDE_DIRS}
@@ -99,18 +99,19 @@ else ()
         sdlabs utils
     )
 endif ()
+
 target_sources(gengine
     PUBLIC FILE_SET HEADERS
     BASE_DIRS ${CMAKE_CURRENT_SOURCE_DIR}/include
     FILES
         ${CMAKE_CURRENT_SOURCE_DIR}/include/GEngine.hpp
-        ${CMAKE_CURRENT_SOURCE_DIR}/include/Core.hpp
-        ${CMAKE_CURRENT_SOURCE_DIR}/include/Engine/Scene.hpp
-        ${CMAKE_CURRENT_SOURCE_DIR}/include/Engine/Camera.hpp
-        ${CMAKE_CURRENT_SOURCE_DIR}/include/Engine/SoundLoader.hpp
-        ${CMAKE_CURRENT_SOURCE_DIR}/include/Engine/TexturesLoader.hpp
-        ${CMAKE_CURRENT_SOURCE_DIR}/include/Engine/TransformUtils.hpp
-        ${CMAKE_CURRENT_SOURCE_DIR}/include/Engine/WinInfo.hpp
+        ${CMAKE_CURRENT_SOURCE_DIR}/include/engine/Core.hpp
+        ${CMAKE_CURRENT_SOURCE_DIR}/include/engine/Scene.hpp
+        ${CMAKE_CURRENT_SOURCE_DIR}/include/engine/Camera.hpp
+        ${CMAKE_CURRENT_SOURCE_DIR}/include/engine/SoundLoader.hpp
+        ${CMAKE_CURRENT_SOURCE_DIR}/include/engine/TexturesLoader.hpp
+        ${CMAKE_CURRENT_SOURCE_DIR}/include/engine/TransformUtils.hpp
+        ${CMAKE_CURRENT_SOURCE_DIR}/include/engine/WinInfo.hpp
         ${CMAKE_CURRENT_SOURCE_DIR}/include/systems/AnimationSystem.hpp
         ${CMAKE_CURRENT_SOURCE_DIR}/include/systems/CollisionSystem.hpp
         ${CMAKE_CURRENT_SOURCE_DIR}/include/systems/TilemapSystem.hpp
@@ -134,10 +135,10 @@ cmake_print_variables(CMAKE_INSTALL_LIBDIR)
 cmake_print_variables(CMAKE_INSTALL_INCLUDEDIR)
 
 install(TARGETS gengine
-    LIBRARY DESTINATION ${CMAKE_INSTALL_LIBDIR}
+    LIBRARY DESTINATION ${CMAKE_INSTALL_LIBDIR}/Engine
     FILE_SET HEADERS DESTINATION include/GEngine
 )
 
-install(FILES ${CMAKE_BINARY_DIR}/gengine.pc
+install(FILES ${CMAKE_BINARY_DIR}/engine/gengine.pc
     DESTINATION ${CMAKE_INSTALL_DATAROOTDIR}/pkgconfig
 )

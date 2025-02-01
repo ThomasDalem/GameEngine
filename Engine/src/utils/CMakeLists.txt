@@ -6,12 +6,7 @@ set(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} "${CMAKE_SOURCE_DIR}/cmake/")
 
 set(SRCS
     ${CMAKE_CURRENT_SOURCE_DIR}/src/Random.cpp
-    ${CMAKE_CURRENT_SOURCE_DIR}/src/Random.hpp
-    ${CMAKE_CURRENT_SOURCE_DIR}/src/Timer.hpp
     ${CMAKE_CURRENT_SOURCE_DIR}/src/Timer.cpp
-    ${CMAKE_CURRENT_SOURCE_DIR}/src/Rect.hpp
-    ${CMAKE_CURRENT_SOURCE_DIR}/src/Vec.hpp
-    ${CMAKE_CURRENT_SOURCE_DIR}/src/Color.hpp
 )
 
 if (MSVC)
@@ -52,7 +47,7 @@ endif ()
 add_library(utils STATIC ${SRCS})
 
 target_include_directories(utils
-    PUBLIC "${CMAKE_CURRENT_SOURCE_DIR}/src"
+    PUBLIC "${CMAKE_CURRENT_SOURCE_DIR}/include"
     PRIVATE ${SDL2_INCLUDE_DIRS}
     PRIVATE ${SDL2_IMAGE_INCLUDE_DIRS}
     PRIVATE ${SDL2_GFX_INCLUDE_DIRS}

@@ -1,25 +1,24 @@
 cmake_minimum_required(VERSION 3.23)
 
 include(GNUInstallDirs)
-include(CMakePrintHelpers)
 
 set(CMAKE_CXX_STANDARD 20)
 set(CMAKE_CXX_STANDARD_REQUIRED On)
 set(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} "${CMAKE_SOURCE_DIR}/cmake/")
 
 set(SRCS
-    ${CMAKE_CURRENT_SOURCE_DIR}/src/App.cpp
-    ${CMAKE_CURRENT_SOURCE_DIR}/src/App.hpp
-    ${CMAKE_CURRENT_SOURCE_DIR}/src/Chunk.cpp
-    ${CMAKE_CURRENT_SOURCE_DIR}/src/Chunk.hpp
-    ${CMAKE_CURRENT_SOURCE_DIR}/src/Font.hpp
-    ${CMAKE_CURRENT_SOURCE_DIR}/src/Font.cpp
-    ${CMAKE_CURRENT_SOURCE_DIR}/src/Renderer.hpp
-    ${CMAKE_CURRENT_SOURCE_DIR}/src/Renderer.cpp
-    ${CMAKE_CURRENT_SOURCE_DIR}/src/Surface.hpp
-    ${CMAKE_CURRENT_SOURCE_DIR}/src/Surface.cpp
-    ${CMAKE_CURRENT_SOURCE_DIR}/src/Texture.hpp
-    ${CMAKE_CURRENT_SOURCE_DIR}/src/Texture.cpp
+    ${CMAKE_CURRENT_SOURCE_DIR}/App.cpp
+    ${CMAKE_CURRENT_SOURCE_DIR}/App.hpp
+    ${CMAKE_CURRENT_SOURCE_DIR}/Chunk.cpp
+    ${CMAKE_CURRENT_SOURCE_DIR}/Chunk.hpp
+    ${CMAKE_CURRENT_SOURCE_DIR}/Font.hpp
+    ${CMAKE_CURRENT_SOURCE_DIR}/Font.cpp
+    ${CMAKE_CURRENT_SOURCE_DIR}/Renderer.hpp
+    ${CMAKE_CURRENT_SOURCE_DIR}/Renderer.cpp
+    ${CMAKE_CURRENT_SOURCE_DIR}/Surface.hpp
+    ${CMAKE_CURRENT_SOURCE_DIR}/Surface.cpp
+    ${CMAKE_CURRENT_SOURCE_DIR}/Texture.hpp
+    ${CMAKE_CURRENT_SOURCE_DIR}/Texture.cpp
 )
 
 if (MSVC)
@@ -62,7 +61,7 @@ add_library(sdlabs STATIC ${SRCS})
 target_link_libraries(sdlabs PUBLIC utils)
 
 target_include_directories(sdlabs
-    PUBLIC "${CMAKE_CURRENT_SOURCE_DIR}/src"
+    PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}
     PRIVATE ${SDL2_INCLUDE_DIRS}
     PRIVATE ${SDL2_IMAGE_INCLUDE_DIRS}
     PRIVATE ${SDL2_GFX_INCLUDE_DIRS}
