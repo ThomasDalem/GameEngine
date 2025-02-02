@@ -13,25 +13,25 @@
                     "type": "sprite",
                     "hidden": false,
                     "scale": {
-                        "x": 1,
-                        "y": 1
+                        "x": 3.0,
+                        "y": 3.0
                     },
                     "texture_rect": {
                         "x": 0,
                         "y": 0,
-                        "width": 20,
-                        "height": 30
+                        "width": -1,
+                        "height": -1
                     },
                     "rect": {
-                        "x": 50,
-                        "y": 50,
-                        "width": 20,
-                        "height": 30
+                        "x": 50.0,
+                        "y": 50.0,
+                        "width": 19.0,
+                        "height": 19.0
                     },
-                    "angle": 0,
+                    "angle": 0.0,
                     "flip": "none",
                     "texture": "assets/textures/box.png",
-                    "alpha": 0
+                    "alpha": 255
                 }
             ]
         }

@@ -21,6 +21,8 @@ set(SRCS
     ${CMAKE_CURRENT_SOURCE_DIR}/src/engine/TexturesLoader.cpp
     ${CMAKE_CURRENT_SOURCE_DIR}/src/engine/TransformUtils.cpp
     ${CMAKE_CURRENT_SOURCE_DIR}/src/engine/WinInfo.cpp
+    ${CMAKE_CURRENT_SOURCE_DIR}/src/engine/jsonParse.cpp
+    ${CMAKE_CURRENT_SOURCE_DIR}/src/engine/JSONDeserializer.cpp
 )
 
 if (MSVC)
@@ -112,6 +114,8 @@ target_sources(gengine
         ${CMAKE_CURRENT_SOURCE_DIR}/include/engine/TexturesLoader.hpp
         ${CMAKE_CURRENT_SOURCE_DIR}/include/engine/TransformUtils.hpp
         ${CMAKE_CURRENT_SOURCE_DIR}/include/engine/WinInfo.hpp
+        ${CMAKE_CURRENT_SOURCE_DIR}/include/engine/jsonParse.hpp
+        ${CMAKE_CURRENT_SOURCE_DIR}/include/engine/JSONDeserializer.hpp
         ${CMAKE_CURRENT_SOURCE_DIR}/include/systems/AnimationSystem.hpp
         ${CMAKE_CURRENT_SOURCE_DIR}/include/systems/CollisionSystem.hpp
         ${CMAKE_CURRENT_SOURCE_DIR}/include/systems/TilemapSystem.hpp

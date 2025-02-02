@@ -16,7 +16,6 @@ namespace Engine
         void mainLoop();
 
     private:
-        boost::json::value parseJson(const std::string &file);
         void startup();
 
     private:
