@@ -19,7 +19,7 @@ RectI deserializeRectI(const json::object &obj)
         static_cast<int>(obj.at("x").as_int64()),
         static_cast<int>(obj.at("y").as_int64()),
         static_cast<int>(obj.at("width").as_int64()),
-        static_cast<int>(obj.at("height").as_int64()),
+        static_cast<int>(obj.at("height").as_int64())
     };
 }
 
@@ -29,7 +29,17 @@ RectF deserializeRectF(const json::object &obj)
         static_cast<float>(obj.at("x").as_double()),
         static_cast<float>(obj.at("y").as_double()),
         static_cast<float>(obj.at("width").as_double()),
-        static_cast<float>(obj.at("height").as_double()),
+        static_cast<float>(obj.at("height").as_double())
+    };
+}
+
+Color deserializeColor(const json::object &obj)
+{
+    return {
+        static_cast<uint8_t>(obj.at("r").as_uint64()),
+        static_cast<uint8_t>(obj.at("g").as_uint64()),
+        static_cast<uint8_t>(obj.at("b").as_uint64()),
+        static_cast<uint8_t>(obj.at("a").as_uint64())
     };
 }
 
@@ -88,8 +98,30 @@ Engine::Sprite deserializeSprite(const json::object &obj, TexturesLoader &textur
     sprite.texture = texturesLoader.getTexture(obj.at("texture").as_string().c_str());
     sprite.alpha = obj.at("alpha").as_int64();
 
-    std::cout << "rect: " << sprite.rect << " texture_rect: " << sprite.textureRect << std::endl;
-
     return sprite;
 }
 
+Engine::Circle deserializeCircle(const json::object &obj)
+{
+    json::object::const_iterator objIt = obj.find("type");
+    if (objIt == obj.end())
+    {
+        std::cerr << "Cannot find type of JSON object\n";
+        throw std::runtime_error("Object type field not found");
+    }
+    if (objIt->value().as_string() != "circle")
+    {
+        std::cerr << "Given component is not a Circle\n";
+        throw std::runtime_error("Component is not a Circle");
+    }
+
+    Engine::Circle circle;
+
+    circle.color = deserializeColor(obj.at("color").as_object());
+    circle.x = static_cast<float>(obj.at("x").as_double());
+    circle.x = static_cast<float>(obj.at("y").as_double());
+    circle.radius = static_cast<int>(obj.at("radius").as_int64());
+    circle.filled = obj.at("filled").as_bool();
+    circle.hidden = obj.at("hidden").as_bool();
+    return circle;
+}

@@ -17,7 +17,7 @@
 
 using namespace Engine;
 
-Core::Core() : _app(1600, 900), _camera({0, 0, 0, 0}), _scene(_app.getRenderer())
+Core::Core() : _app(1600, 900), _scene(_app.getRenderer()), _camera({0, 0, 0, 0})
 {
     WinInfo::getInstance().setApp(&_app);
     WinInfo::getInstance().setWindowSize({1600, 900});
