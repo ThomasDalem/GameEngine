@@ -44,6 +44,10 @@ void Scene::loadScene(const std::string &file)
                 Sprite sprite = deserializeSprite(component.as_object(), _texturesLoader);
                 _reg.emplace<Sprite>(e, sprite);
             }
+            else if (type == "circle")
+            {
+                _reg.emplace<Circle>(e, deserializeCircle(component.as_object()));
+            }
         }
     }
 }

@@ -3,6 +3,8 @@
 #include "engine/JSONDeserializer.hpp"
 #include "engine/TexturesLoader.hpp"
 
+#include <iostream>
+
 namespace json = boost::json;
 
 Vec2f deserializeVec2f(const json::object &obj)
@@ -36,16 +38,17 @@ RectF deserializeRectF(const json::object &obj)
 Color deserializeColor(const json::object &obj)
 {
     return {
-        static_cast<uint8_t>(obj.at("r").as_uint64()),
-        static_cast<uint8_t>(obj.at("g").as_uint64()),
-        static_cast<uint8_t>(obj.at("b").as_uint64()),
-        static_cast<uint8_t>(obj.at("a").as_uint64())
+        static_cast<uint8_t>(obj.at("r").as_int64()),
+        static_cast<uint8_t>(obj.at("g").as_int64()),
+        static_cast<uint8_t>(obj.at("b").as_int64()),
+        static_cast<uint8_t>(obj.at("a").as_int64())
     };
 }
 
 Engine::Position deserializePosition(const json::object &obj)
 {
     json::object::const_iterator objIt = obj.find("type");
+
     if (objIt == obj.end())
     {
         std::cerr << "Cannot find type of JSON object\n";
@@ -66,6 +69,7 @@ Engine::Position deserializePosition(const json::object &obj)
 Engine::Sprite deserializeSprite(const json::object &obj, TexturesLoader &texturesLoader)
 {
     json::object::const_iterator objIt = obj.find("type");
+
     if (objIt == obj.end())
     {
         std::cerr << "Cannot find type of JSON object\n";
@@ -86,6 +90,7 @@ Engine::Sprite deserializeSprite(const json::object &obj, TexturesLoader &textur
     sprite.angle = obj.at("angle").as_double();
 
     const json::string &flipStr = obj.at("flip").as_string();
+
     if (flipStr == "horizontal")
     {
         sprite.flip = SDL_FLIP_HORIZONTAL;
@@ -104,6 +109,7 @@ Engine::Sprite deserializeSprite(const json::object &obj, TexturesLoader &textur
 Engine::Circle deserializeCircle(const json::object &obj)
 {
     json::object::const_iterator objIt = obj.find("type");
+
     if (objIt == obj.end())
     {
         std::cerr << "Cannot find type of JSON object\n";
@@ -119,7 +125,7 @@ Engine::Circle deserializeCircle(const json::object &obj)
 
     circle.color = deserializeColor(obj.at("color").as_object());
     circle.x = static_cast<float>(obj.at("x").as_double());
-    circle.x = static_cast<float>(obj.at("y").as_double());
+    circle.y = static_cast<float>(obj.at("y").as_double());
     circle.radius = static_cast<int>(obj.at("radius").as_int64());
     circle.filled = obj.at("filled").as_bool();
     circle.hidden = obj.at("hidden").as_bool();
