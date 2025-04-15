@@ -16,8 +16,8 @@ App::App(uint16_t screenWidth, uint16_t screenHeight) : _screenWidth(screenWidth
 
     _window = SDL_CreateWindow(
         "Game",
-        SDL_WINDOWPOS_UNDEFINED,
-        SDL_WINDOWPOS_UNDEFINED,
+        SDL_WINDOWPOS_CENTERED,
+        SDL_WINDOWPOS_CENTERED,
         _screenWidth,
         _screenHeight,
         SDL_WINDOW_SHOWN | SDL_WINDOW_ALLOW_HIGHDPI | SDL_WINDOW_RESIZABLE | SDL_WINDOW_OPENGL
@@ -33,7 +33,7 @@ App::App(uint16_t screenWidth, uint16_t screenHeight) : _screenWidth(screenWidth
 
     _renderer.setDrawColor(50, 50, 50, 0);
 
-    SDL_RenderSetLogicalSize(_renderer.getRenderer(), screenWidth, screenHeight);
+    //SDL_RenderSetLogicalSize(_renderer.getRenderer(), screenWidth, screenHeight);
 
     // Init PNG loading
     const int imgFlags = IMG_INIT_PNG;

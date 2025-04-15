@@ -14,13 +14,14 @@ int mainLoop(SDL::App &app)
 
     IMGUI_CHECKVERSION();
     ImGui::CreateContext();
-    ImGuiIO& io = ImGui::GetIO();
+    ImGuiIO &io = ImGui::GetIO();
     io.ConfigFlags |= ImGuiConfigFlags_NavEnableKeyboard;
     io.ConfigFlags |= ImGuiConfigFlags_DockingEnable;
     io.ConfigFlags |= ImGuiConfigFlags_ViewportsEnable;
 
     ImGui_ImplSDL2_InitForSDLRenderer(app.getWindow(), app.getRenderer().getRenderer());
     ImGui_ImplSDLRenderer2_Init(app.getRenderer().getRenderer());
+
     while (!quit)
     {
         while (SDL_PollEvent(&e) != 0)
