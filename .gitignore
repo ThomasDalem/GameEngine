@@ -1,11 +1,9 @@
-build/
-engine/build/
 .vscode/*
+build/
+
+libgengine.so*
 
 runtime
-libgengine.so*
-Editor
-
 # Prerequisites
 *.d
 
