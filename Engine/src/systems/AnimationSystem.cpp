@@ -1,7 +1,8 @@
+#include <iostream>
 #include "systems/AnimationSystem.hpp"
 #include "components/Animation.hpp"
 #include "components/Sprite.hpp"
-#include <iostream>
+#include <SDL2/SDL_timer.h>
 
 using namespace Engine;
 

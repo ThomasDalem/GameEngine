@@ -5,7 +5,7 @@
 #include <memory>
 #include <unordered_map>
 #include "Rect.hpp"
-#include "Texture.hpp"
+//#include "Texture.hpp"
 
 namespace Engine
 {
@@ -27,7 +27,7 @@ namespace Engine
     struct Tilemap
     {
         std::vector<TileType> map;
-        std::shared_ptr<SDL::Texture> texture;
+        //std::shared_ptr<SDL::Texture> texture;
         std::size_t x;
         std::size_t y;
         int tileWidth;

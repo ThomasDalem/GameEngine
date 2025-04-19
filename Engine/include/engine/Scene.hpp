@@ -3,14 +3,13 @@
 
 #include <vector>
 #include "entt.hpp"
-#include "engine/TexturesLoader.hpp"
 
 namespace Engine
 {
     class Scene
     {
     public:
-        Scene(SDL::Renderer &renderer);
+        Scene();
         ~Scene();
 
         entt::registry &getRegistry();
@@ -19,7 +18,6 @@ namespace Engine
 
     protected:
         entt::registry _reg;
-        TexturesLoader _texturesLoader;
     };
 }
 

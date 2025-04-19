@@ -6,7 +6,7 @@
 using namespace Engine;
 namespace json = boost::json;
 
-Scene::Scene(SDL::Renderer &renderer): _texturesLoader(renderer)
+Scene::Scene()
 {
 }
 
@@ -39,11 +39,11 @@ void Scene::loadScene(const std::string &file)
                 //auto [x, y, type] = deserializePosition(component.as_object());
                 _reg.emplace<Position>(e, pos);
             }
-            else if (type == "sprite")
+            /* else if (type == "sprite")
             {
                 Sprite sprite = deserializeSprite(component.as_object(), _texturesLoader);
                 _reg.emplace<Sprite>(e, sprite);
-            }
+            } */
             else if (type == "circle")
             {
                 _reg.emplace<Circle>(e, deserializeCircle(component.as_object()));

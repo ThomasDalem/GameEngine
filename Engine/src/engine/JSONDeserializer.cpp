@@ -1,7 +1,7 @@
 #include <iostream>
 #include <exception>
+#include "Rect.hpp"
 #include "engine/JSONDeserializer.hpp"
-#include "engine/TexturesLoader.hpp"
 
 #include <iostream>
 
@@ -66,7 +66,7 @@ Engine::Position deserializePosition(const json::object &obj)
     return {x, y};
 }
 
-Engine::Sprite deserializeSprite(const json::object &obj, TexturesLoader &texturesLoader)
+/* Engine::Sprite deserializeSprite(const json::object &obj, TexturesLoader &texturesLoader)
 {
     json::object::const_iterator objIt = obj.find("type");
 
@@ -104,7 +104,7 @@ Engine::Sprite deserializeSprite(const json::object &obj, TexturesLoader &textur
     sprite.alpha = obj.at("alpha").as_int64();
 
     return sprite;
-}
+} */
 
 Engine::Circle deserializeCircle(const json::object &obj)
 {

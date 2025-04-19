@@ -1,4 +1,5 @@
 #include "engine/WinInfo.hpp"
+#include <SDL2/SDL_mouse.h>
 
 WinInfo::WinInfo() : _app(nullptr), _mousePos(0, 0)
 {}

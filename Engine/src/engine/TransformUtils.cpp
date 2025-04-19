@@ -8,11 +8,11 @@ void translatePos(Position &pos, const Vec2f &translation)
     pos += translation;
 }
 
-void translateSprite(Sprite &sprite, const Vec2f &translation)
+/* void translateSprite(Sprite &sprite, const Vec2f &translation)
 {
     sprite.rect.x += translation.x;
     sprite.rect.y += translation.y;
-}
+} */
 
 void translateCircle(Circle &circle, const Vec2f &translation)
 {
@@ -42,11 +42,11 @@ void translate(entt::registry &reg, entt::entity e, const Vec2f &translation, bo
         translatePos(pos, translation);
     }
 
-    Sprite *sprite = reg.try_get<Sprite>(e);
+    /* Sprite *sprite = reg.try_get<Sprite>(e);
     if (sprite != nullptr && pos.type == ABSOLUTE)
     {
         translateSprite(*sprite, translation);
-    }
+    } */
 
     Collider *collider = reg.try_get<Collider>(e);
     if (collider != nullptr)
@@ -90,7 +90,7 @@ void setPositionPos(Position &pos, const Vec2f &newPosition)
     pos = newPosition;
 }
 
-void setSpritePosition(Sprite &sprite, const Vec2f &position, bool centerSprite)
+/* void setSpritePosition(Sprite &sprite, const Vec2f &position, bool centerSprite)
 {
     sprite.rect.x = position.x;
     sprite.rect.y = position.y;
@@ -100,7 +100,7 @@ void setSpritePosition(Sprite &sprite, const Vec2f &position, bool centerSprite)
         sprite.rect.x -= center.x;
         sprite.rect.y -= center.y;
     }
-}
+} */
 
 void setCirclePosition(Circle &circle, const Vec2f &position)
 {
@@ -124,11 +124,11 @@ void setPosition(entt::registry &reg, entt::entity e, const Vec2f &position, boo
         translatePos(*pos, position);
     }
 
-    Sprite *sprite = reg.try_get<Sprite>(e);
+    /* Sprite *sprite = reg.try_get<Sprite>(e);
     if (sprite != nullptr)
     {
         setSpritePosition(*sprite, position, centerSprites);
-    }
+    } */
 
     Collider *collider = reg.try_get<Collider>(e);
     if (collider != nullptr)
@@ -159,7 +159,7 @@ void setPosition(entt::registry &reg, entt::entity e, const Vec2f &position, boo
     }
 }
 
-void rotateSprite(entt::registry &reg, entt::entity e, Sprite &sprite, float angle)
+/* void rotateSprite(entt::registry &reg, entt::entity e, Sprite &sprite, float angle)
 {
     Parent *parent = reg.try_get<Parent>(e);
     if (parent)
@@ -171,15 +171,15 @@ void rotateSprite(entt::registry &reg, entt::entity e, Sprite &sprite, float ang
         }
     }
     sprite.angle = angle;
-}
+} */
 
 void rotate(entt::registry &reg, entt::entity e, float angle, bool moveChildren)
 {
-    Sprite *sprite = reg.try_get<Sprite>(e);
+    /* Sprite *sprite = reg.try_get<Sprite>(e);
     if (sprite != nullptr)
     {
         rotateSprite(reg, e, *sprite, angle);
-    }
+    } */
 
 /*     Collider *collider = reg.try_get<Collider>(e);
     if (collider != nullptr)

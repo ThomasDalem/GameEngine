@@ -3,7 +3,7 @@
 
 #include "systems/CollisionSystem.hpp"
 #include "components/Collider.hpp"
-#include "components/Sprite.hpp"
+//#include "components/Sprite.hpp"
 #include "Rect.hpp"
 #include "engine/TransformUtils.hpp"
  
@@ -114,17 +114,6 @@ void moveCollider(std::vector<Vec2f> &vertices, const Vec2f &length)
     {
         vertex += length;
     }
-}
-
-void moveSprite(const Vec2f &length, entt::registry &reg, entt::entity e)
-{
-    Sprite *sprite = reg.try_get<Sprite>(e);
-    if (sprite == nullptr)
-    {
-        return;
-    }
-    sprite->rect.x += length.x;
-    sprite->rect.y += length.y;
 }
 
 void handleCollisions(entt::registry &reg)

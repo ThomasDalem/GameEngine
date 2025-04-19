@@ -9,7 +9,7 @@
 #include "engine/jsonParse.hpp"
 #include "Timer.hpp"
 
-#include "systems/RenderSystem.hpp"
+//#include "systems/RenderSystem.hpp"
 #include "systems/AnimationSystem.hpp"
 #include "systems/TilemapSystem.hpp"
 #include "systems/CollisionSystem.hpp"
@@ -17,7 +17,7 @@
 
 using namespace Engine;
 
-Core::Core() : _app(1600, 900), _scene(_app.getRenderer()), _camera({0, 0, 0, 0})
+Core::Core() : _app(1600, 900), _camera({0, 0, 0, 0})
 {
     WinInfo::getInstance().setApp(&_app);
     WinInfo::getInstance().setWindowSize({1600, 900});
@@ -55,9 +55,6 @@ void Core::mainLoop()
                 WinInfo::getInstance().setMousePos(e.motion.x, e.motion.y);
             }
         }
-        
-        _app.getRenderer().setDrawColor(50, 50, 50, 0);
-        _app.getRenderer().clear();
 
         moveObjects(reg, frameTimer.getDeltaTime());
         animateSprites(reg, animTimer.getDeltaTime());
@@ -66,8 +63,6 @@ void Core::mainLoop()
         frameTimer.start();
 
         //drawMap(reg, _app.getRenderer(), _camera);
-        updateRenderSystem(reg, _app.getRenderer(), _camera, false);
-
-        _app.getRenderer().present();
+        //updateRenderSystem(reg, _app.getRenderer(), _camera, false);
     }
 }

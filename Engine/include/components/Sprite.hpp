@@ -4,7 +4,6 @@
 #include <memory>
 #include "Vec.hpp"
 #include "Rect.hpp"
-#include "Texture.hpp"
 
 namespace Engine
 {
@@ -13,10 +12,9 @@ namespace Engine
         Vec2f scale;
         RectI textureRect;
         RectF rect;
-        std::shared_ptr<SDL::Texture> texture;
+        //std::shared_ptr<SDL::Texture> texture;
         int alpha;
         float angle = 0.f;
-        SDL_RendererFlip flip = SDL_FLIP_NONE;
         bool hidden = false;
     };
 }

@@ -10,7 +10,6 @@ set(CMAKE_CXX_STANDARD_REQUIRED On)
 set(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} "${CMAKE_SOURCE_DIR}/cmake/")
 
 set(SRCS
-    ${CMAKE_CURRENT_SOURCE_DIR}/src/systems/RenderSystem.cpp
     ${CMAKE_CURRENT_SOURCE_DIR}/src/systems/AnimationSystem.cpp
     ${CMAKE_CURRENT_SOURCE_DIR}/src/systems/MovementSystem.cpp
     ${CMAKE_CURRENT_SOURCE_DIR}/src/systems/CollisionSystem.cpp
@@ -18,7 +17,6 @@ set(SRCS
     ${CMAKE_CURRENT_SOURCE_DIR}/src/engine/Core.cpp
     ${CMAKE_CURRENT_SOURCE_DIR}/src/engine/Scene.cpp
     ${CMAKE_CURRENT_SOURCE_DIR}/src/engine/SoundLoader.cpp
-    ${CMAKE_CURRENT_SOURCE_DIR}/src/engine/TexturesLoader.cpp
     ${CMAKE_CURRENT_SOURCE_DIR}/src/engine/TransformUtils.cpp
     ${CMAKE_CURRENT_SOURCE_DIR}/src/engine/WinInfo.cpp
     ${CMAKE_CURRENT_SOURCE_DIR}/src/engine/jsonParse.cpp
@@ -111,7 +109,6 @@ target_sources(gengine
         ${CMAKE_CURRENT_SOURCE_DIR}/include/engine/Scene.hpp
         ${CMAKE_CURRENT_SOURCE_DIR}/include/engine/Camera.hpp
         ${CMAKE_CURRENT_SOURCE_DIR}/include/engine/SoundLoader.hpp
-        ${CMAKE_CURRENT_SOURCE_DIR}/include/engine/TexturesLoader.hpp
         ${CMAKE_CURRENT_SOURCE_DIR}/include/engine/TransformUtils.hpp
         ${CMAKE_CURRENT_SOURCE_DIR}/include/engine/WinInfo.hpp
         ${CMAKE_CURRENT_SOURCE_DIR}/include/engine/jsonParse.hpp
@@ -120,7 +117,6 @@ target_sources(gengine
         ${CMAKE_CURRENT_SOURCE_DIR}/include/systems/CollisionSystem.hpp
         ${CMAKE_CURRENT_SOURCE_DIR}/include/systems/TilemapSystem.hpp
         ${CMAKE_CURRENT_SOURCE_DIR}/include/systems/MovementSystem.hpp
-        ${CMAKE_CURRENT_SOURCE_DIR}/include/systems/RenderSystem.hpp
         ${CMAKE_CURRENT_SOURCE_DIR}/include/components/Animation.hpp
         ${CMAKE_CURRENT_SOURCE_DIR}/include/components/Circle.hpp
         ${CMAKE_CURRENT_SOURCE_DIR}/include/components/Collider.hpp

@@ -2,7 +2,8 @@
 #define APP_HPP
 
 #include <SDL2/SDL_video.h>
-#include "Renderer.hpp"
+#include <SDL_opengl.h>
+#include <GL/gl.h>
 
 namespace SDL {
     class App {
@@ -12,15 +13,18 @@ namespace SDL {
 
         SDL_Window *getWindow();
         SDL_Surface *getSurface();
-        Renderer &getRenderer();
+        SDL_GLContext &getContext();
 
         uint16_t getScreenWidth() const noexcept;
         uint16_t getScreenHeight() const noexcept;
 
     private:
+        void initOpenGL();
+
+    private:
         SDL_Window *_window;
         SDL_Surface *_surface;
-        Renderer _renderer;
+        SDL_GLContext _glContext;
         uint16_t _screenWidth;
         uint16_t _screenHeight;
     };

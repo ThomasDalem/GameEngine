@@ -4,7 +4,7 @@
 
 using namespace Engine;
 
-void drawMap(entt::registry &reg, SDL::Renderer &renderer, const Engine::Camera &camera)
+/* void drawMap(entt::registry &reg, SDL::Renderer &renderer, const Engine::Camera &camera)
 {
     const auto view = reg.view<Tilemap>();
 
@@ -37,3 +37,4 @@ void drawMap(entt::registry &reg, SDL::Renderer &renderer, const Engine::Camera 
         }
     }
 }
+ */

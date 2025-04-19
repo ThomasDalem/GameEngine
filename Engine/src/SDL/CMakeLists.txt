@@ -13,12 +13,8 @@ set(SRCS
     ${CMAKE_CURRENT_SOURCE_DIR}/Chunk.hpp
     ${CMAKE_CURRENT_SOURCE_DIR}/Font.hpp
     ${CMAKE_CURRENT_SOURCE_DIR}/Font.cpp
-    ${CMAKE_CURRENT_SOURCE_DIR}/Renderer.hpp
-    ${CMAKE_CURRENT_SOURCE_DIR}/Renderer.cpp
     ${CMAKE_CURRENT_SOURCE_DIR}/Surface.hpp
     ${CMAKE_CURRENT_SOURCE_DIR}/Surface.cpp
-    ${CMAKE_CURRENT_SOURCE_DIR}/Texture.hpp
-    ${CMAKE_CURRENT_SOURCE_DIR}/Texture.cpp
 )
 
 if (MSVC)

@@ -37,6 +37,7 @@ if (WIN32)
 endif ()
 
 find_package(Boost 1.86 REQUIRED COMPONENTS json)
+find_package(OpenGL REQUIRED)
 
 if (WIN32)
     find_package(sdl2 CONFIG REQUIRED)
@@ -64,6 +65,7 @@ if (WIN32)
         Boost::json
         imgui
         sdlabs
+        OpenGL
     )
 else ()
     target_link_libraries(Editor PUBLIC 
@@ -75,6 +77,7 @@ else ()
         Boost::json
         imgui
         sdlabs
+        OpenGL
     )
 endif ()
 
@@ -85,4 +88,5 @@ target_include_directories(Editor
     PUBLIC ${SDL2_IMAGE_INCLUDE_DIRS}
     PUBLIC ${SDL2_GFX_INCLUDE_DIRS}
     PUBLIC ${SDL2_MIXER_INCLUDE_DIRS}
+    PUBLIC ${OPENGL_INCLUDE_DIRS}
 )
